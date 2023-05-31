@@ -49,4 +49,13 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     //glide
     implementation 'com.github.bumptech.glide:glide:4.15.1'
+    //logging interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    //view model
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    //live data
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 }
