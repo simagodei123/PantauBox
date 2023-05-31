@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Pantau Box</string>
+    <string name="pantaubox">PantauBox</string>
+    <string name="verifikasi">\nVerifikasi\n</string>
+    <string name="copyRight">Copyright©2023 PantauBox</string>
+    <string name="gambar_verif1">Gambar_verif1</string>
+    <string name="gambar_cp">cp_image</string>
+    <string name="kandidat_name">Nama Kandidat</string>
+    <string name="detail">Klik untuk melihat detail kandidat!</string>
+</resources>
