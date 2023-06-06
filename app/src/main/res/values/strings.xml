@@ -7,4 +7,9 @@
     <string name="gambar_cp">cp_image</string>
     <string name="kandidat_name">Nama Kandidat</string>
     <string name="detail">Klik untuk melihat detail kandidat!</string>
+    <string name="gambar_paslon">gambar paslon</string>
+    <string name="nama_paslon">Nama paslon</string>
+    <string name="nama_wapaslon">Nama wapaslon</string>
+    <string name="desc_paslon">Deskripsi jika perlu / ada</string>
+    <string name="tv_wait_reco">Tetaplah berada di posisi ini,\nharap menunggu pengambilan gambar.</string>
 </resources>

@@ -1,12 +1,12 @@
-package com.example.pantaubox.login
+package com.example.pantaubox.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pantaubox.R
 
-class AfterVerifActivity : AppCompatActivity() {
+class VoteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_after_verif)
+        setContentView(R.layout.activity_vote)
     }
 }
