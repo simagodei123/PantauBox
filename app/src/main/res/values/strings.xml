@@ -12,4 +12,5 @@
     <string name="nama_wapaslon">Nama wapaslon</string>
     <string name="desc_paslon">Deskripsi jika perlu / ada</string>
     <string name="tv_wait_reco">Tetaplah berada di posisi ini,\nharap menunggu pengambilan gambar.</string>
+    <string name="button_vote">vote</string>
 </resources>

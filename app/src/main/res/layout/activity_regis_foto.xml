@@ -135,8 +135,9 @@
         android:text="@string/copyRight"
         android:textSize="9sp"
         android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_cp"
-        tools:ignore="MissingConstraints,SmallSp"
-        tools:layout_editor_absoluteX="150dp" />
+        tools:ignore="MissingConstraints,SmallSp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
