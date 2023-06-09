@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Pantau Box</string>
     <string name="pantaubox">PantauBox</string>
-    <string name="verifikasi">\nVerifikasi\n</string>
+
+    <string name="verifikasi">Lanjut Verifikasi</string>
     <string name="copyRight">Copyright©2023 PantauBox</string>
     <string name="gambar_verif1">Gambar_verif</string>
     <string name="gambar_cp">cp_image</string>
@@ -13,4 +14,33 @@
     <string name="desc_paslon">Deskripsi jika perlu / ada</string>
     <string name="tv_wait_reco">Tetaplah berada di posisi ini,\nharap menunggu pengambilan gambar.</string>
     <string name="button_vote">vote</string>
+    <string name="norut_paslon">nomor urut</string>
+    <string name="co_kandidat_name">Nama Wakil Kandidat</string>
+    <string name="nik">NIK</string>
+    <string name="logout">Logout</string>
+    <string name="login_success">Login Success!</string>
+    <string name="login_failed">Login Failed!</string>
+    <string name="server_caused">http 500</string>
+    <string name="nik_kosong">NIK Tidak boleh kosong!</string>
+    <string name="required_nik">NIK kurang dari 16 digit</string>
+
+    <string-array name="paslon_name1">
+        <item>Joko Widodo</item>
+        <item>Prabowo Subianto</item>
+    </string-array>
+    <string-array name="paslon_name2">
+        <item>Maaruf Amin</item>
+        <item>Sandiaga Uno</item>
+    </string-array>
+
+    <integer-array name="paslon_img">
+        <item>@drawable/jokowimaruf</item>
+        <item>@drawable/prabowosandi</item>
+    </integer-array>
+
+    <string-array name="norut">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

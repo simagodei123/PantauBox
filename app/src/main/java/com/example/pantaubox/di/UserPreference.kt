@@ -1,0 +1,39 @@
+package com.example.pantaubox.di
+
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import androidx.datastore.preferences.core.Preferences
+
+class UserPreference private constructor(private val dataStore: DataStore<Preferences>){
+
+    suspend fun saveToken(token: String) {
+        dataStore.edit { preferences ->
+            preferences[TOKEN] = token
+        }
+    }
+
+    suspend fun logout() {
+        dataStore.edit { preferences ->
+            preferences[TOKEN] = ""
+        }
+    }
+
+    companion object {
+        @Volatile
+        private var INSTANCE: UserPreference? = null
+
+        private val TOKEN = stringPreferencesKey("token")
+
+        fun getInstance(dataStore: DataStore<Preferences>): UserPreference {
+            return INSTANCE ?: synchronized(this) {
+                val instance = UserPreference(dataStore)
+                INSTANCE = instance
+                instance
+            }
+        }
+    }
+
+}

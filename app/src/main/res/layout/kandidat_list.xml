@@ -19,7 +19,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_kandidat"
-            android:layout_width="70dp"
+            android:layout_width="100dp"
             android:scaleType="centerCrop"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
@@ -28,46 +28,59 @@
             android:layout_height="100dp"/>
 
         <TextView
-            android:id="@+id/tv_kandidat_name"
+            android:id="@+id/tv_norut_paslon"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:layout_toEndOf="@id/img_kandidat"
+            android:gravity="center"
+            android:textColor="@color/font"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.0"
+            card_view:layout_constraintStart_toEndOf="@+id/img_kandidat"
+            card_view:layout_constraintTop_toTopOf="@+id/img_kandidat"
+            tools:text="@string/norut_paslon" />
+
+        <TextView
+            android:id="@+id/tv_kandidat_name1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@id/img_kandidat"
+            android:gravity="center"
+            android:textColor="@color/font"
             android:textSize="16sp"
             android:textStyle="bold"
             card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toEndOf="@+id/img_kandidat"
-            card_view:layout_constraintTop_toTopOf="@+id/img_kandidat"
-            tools:text="@string/kandidat_name"
-            android:layout_marginStart="8dp"/>
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_norut_paslon"
+            tools:text="@string/co_kandidat_name" />
 
         <TextView
             android:id="@+id/tv_kandidat_name2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_toEndOf="@id/img_kandidat"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/font"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toEndOf="@+id/img_kandidat"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_kandidat_name"
-            tools:text="@string/kandidat_name" />
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_kandidat_name1"
+            tools:text="@string/co_kandidat_name" />
 
-        <TextView
-            android:id="@+id/tv_kandidat_visi"
-            android:layout_width="293dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:ellipsize="end"
-            android:maxLines="3"
-            card_view:layout_constraintEnd_toEndOf="@+id/tv_kandidat_name2"
-            card_view:layout_constraintStart_toStartOf="@+id/tv_kandidat_name2"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_kandidat_name2"
-            tools:text="@string/detail" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

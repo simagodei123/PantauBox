@@ -5,8 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.example.pantaubox.MainActivity
 import com.example.pantaubox.R
+import com.example.pantaubox.login.LoginWelcome
+import com.example.pantaubox.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -19,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed(
             {
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, LoginWelcome::class.java))
                 finish()
             },
             SPLASH_TIME_OUT

@@ -1,10 +1,9 @@
-package com.example.pantaubox.login.register
+package com.example.pantaubox.login.reco
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
-import com.example.pantaubox.R
 import com.example.pantaubox.databinding.ActivityCameraBinding
 
 class CameraActivity : AppCompatActivity() {
