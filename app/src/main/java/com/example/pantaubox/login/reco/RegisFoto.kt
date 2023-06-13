@@ -3,30 +3,27 @@ package com.example.pantaubox.login.reco
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
+import android.graphics.BitmapFactory
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
 import com.example.pantaubox.databinding.ActivityRegisFotoBinding
+import com.example.pantaubox.di.ViewModelFactory
+import com.example.pantaubox.main.MainActivity
 import java.io.File
 
 class RegisFoto : AppCompatActivity() {
+
     private lateinit var binding: ActivityRegisFotoBinding
-    //upload file
+    private val regisFotoViewModel: RegisFotoViewModel by viewModels { viewModelFactory }
+    private lateinit var viewModelFactory: ViewModelFactory
     private var getFile: File? = null
-
-    //izin untuk menggunakan kamera
-    companion object {
-        const val CAMERA_X_RESULT = 200
-
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-        private const val REQUEST_CODE_PERMISSIONS = 10
-    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -45,6 +42,7 @@ class RegisFoto : AppCompatActivity() {
             }
         }
     }
+
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
@@ -54,10 +52,13 @@ class RegisFoto : AppCompatActivity() {
         binding = ActivityRegisFotoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //binding.cameraButton.setOnClickListener { startTakePhoto() }
-        //binding.uploadButton.setOnClickListener { uploadImage()
-        //    uploadImage()
+        setupViewModel()
+
+        binding.btnGoFoto.setOnClickListener { startCamera() }
+        //binding.buttonUpload.setOnClickListener {
+        //    uploadStory()
         //}
+        binding.btnVerif2.setOnClickListener { intentMain() }
 
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
@@ -66,37 +67,66 @@ class RegisFoto : AppCompatActivity() {
                 REQUEST_CODE_PERMISSIONS
             )
         }
+
     }
 
-    private fun startTakePhoto() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        intent.resolveActivity(packageManager)
+    private fun setupViewModel() {
+        viewModelFactory = ViewModelFactory.getInstance(this)
 
-        createTempFile(application).also {
-            val photoUri: Uri = FileProvider.getUriForFile(
-                this@RegisFoto,
-                "com.example.pantaubox",
-                it
-            )
-            currentPhotoPath = it.absolutePath
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri)
-            launcherIntentCamera.launch(intent)
-        }
+        //regisFotoViewModel.isLoading.observe(this) {
+        //    showLoading(it)
+        //}
     }
-    private lateinit var currentPhotoPath: String
+
+    private fun startCamera() {
+        val intent = Intent(this, CameraActivity::class.java)
+        launcherIntentCamera.launch(intent)
+    }
+
     private val launcherIntentCamera = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
-        if (it.resultCode == RESULT_OK) {
-            val myFile = File(currentPhotoPath)
+        if (it.resultCode == CAMERA_X_RESULT) {
+            val myFile = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                it.data?.getSerializableExtra("picture", File::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                it.data?.getSerializableExtra("picture")
+            } as? File
 
-            myFile.let { file ->
-                rotateFile(file)
-                //upload file
+            val isFrontCamera = it.data?.getBooleanExtra("isFrontCamera", true) as Boolean
+
+            myFile?.let { file ->
+                rotateFile(file, isFrontCamera)
                 getFile = file
-                //binding.previewImageView.setImageBitmap(BitmapFactory.decodeFile(file.path))
+                binding.ivPreviewPhoto.setImageBitmap(BitmapFactory.decodeFile(file.path))
             }
         }
+    }
+
+    private fun intentMain(){
+        startActivity(Intent(this@RegisFoto, MainActivity::class.java))
+        Toast.makeText(
+            this@RegisFoto,
+            "Verifikasi Sukses!",
+            Toast.LENGTH_SHORT
+        ).show()
+        finish()
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.pbRegisFoto.visibility = View.VISIBLE
+        } else {
+            binding.pbRegisFoto.visibility = View.GONE
+        }
+    }
+
+    companion object {
+        const val CAMERA_X_RESULT = 200
+
+        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+        private const val REQUEST_CODE_PERMISSIONS = 10
     }
 
 }

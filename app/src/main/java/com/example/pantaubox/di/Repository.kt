@@ -9,6 +9,7 @@ import androidx.lifecycle.asLiveData
 import com.example.pantaubox.api.ApiConfig
 import com.example.pantaubox.api.ApiService
 import com.example.pantaubox.response.LoginResponse
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,7 +25,7 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun loginUser(nik: String, context: Context) {
+    fun loginUser(nik: RequestBody, context: Context) {
         _isLoading.value = true
         val client = ApiConfig.ApiService().loginUser(nik)
         client.enqueue(object : Callback<LoginResponse> {
@@ -48,6 +49,10 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
+    }
+
+    fun getToken(): LiveData<String> {
+        return pref.getToken().asLiveData()
     }
 
     suspend fun saveToken(token: String) {

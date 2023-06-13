@@ -2,7 +2,7 @@
     <string name="app_name">Pantau Box</string>
     <string name="pantaubox">PantauBox</string>
 
-    <string name="verifikasi">Lanjut Verifikasi</string>
+    <string name="verifikasi">Masuk</string>
     <string name="copyRight">Copyright©2023 PantauBox</string>
     <string name="gambar_verif1">Gambar_verif</string>
     <string name="gambar_cp">cp_image</string>
@@ -12,17 +12,23 @@
     <string name="nama_paslon">Nama paslon</string>
     <string name="nama_wapaslon">Nama wapaslon</string>
     <string name="desc_paslon">Deskripsi jika perlu / ada</string>
-    <string name="tv_wait_reco">Tetaplah berada di posisi ini,\nharap menunggu pengambilan gambar.</string>
+    <string name="tv_wait_reco">Tetaplah berada di posisi ini,\ntekan tombol jika sudah siap.</string>
     <string name="button_vote">vote</string>
     <string name="norut_paslon">nomor urut</string>
     <string name="co_kandidat_name">Nama Wakil Kandidat</string>
     <string name="nik">NIK</string>
     <string name="logout">Logout</string>
     <string name="login_success">Login Success!</string>
-    <string name="login_failed">Login Failed!</string>
+    <string name="login_failed">Login Failed: Silakan cek kembali NIK anda!</string>
     <string name="server_caused">http 500</string>
     <string name="nik_kosong">NIK Tidak boleh kosong!</string>
     <string name="required_nik">NIK kurang dari 16 digit</string>
+    <string name="step_hint">Petunjuk Verifikasi Wajah :</string>
+    <string name="hint_1">1. Pastikan berada di tempat terang</string>
+    <string name="hint_2">2. Pastikan wajah tidak tertutup</string>
+    <string name="hint_3">3. Tunggu hasil verifikasi</string>
+    <string name="btn_goVerif">Ambil gambar</string>
+    <string name="verifikasi_masuk">verifikasi</string>
 
     <string-array name="paslon_name1">
         <item>Joko Widodo</item>

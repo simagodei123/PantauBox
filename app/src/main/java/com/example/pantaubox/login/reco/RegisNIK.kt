@@ -6,14 +6,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.pantaubox.R
 import com.example.pantaubox.databinding.ActivityRegisNikBinding
 import com.example.pantaubox.di.ViewModelFactory
 import com.example.pantaubox.login.LoginViewModel
 import com.example.pantaubox.login.LoginWelcome
 import com.example.pantaubox.main.MainActivity
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
 
 class RegisNIK : AppCompatActivity() {
 
@@ -36,24 +36,33 @@ class RegisNIK : AppCompatActivity() {
         loginViewModel.isLoading.observe(this) {
             showLoading(it)
         }
+        loginViewModel.tokenState().observe(this){
+            if (it != "") {
+                showLoading(false)
+                startActivity(Intent(this@RegisNIK, RegisFoto::class.java))
+                finish()
+            }
+        }
     }
 
     private fun setupAction() {
         binding.btnGoVerif.setOnClickListener {
+            startIntent()
             val nik = binding.edLoginNik.text.toString()
+            val mediaType = "application/form-data".toMediaType()
+            val NIK = nik.toRequestBody(mediaType)
 
             when {
                 nik.length < 16 -> {
                     binding.edLoginNik.error = getString(R.string.required_nik)
                 }
                 else -> {
-                    loginViewModel.loginUser(nik, this)
+                    loginViewModel.loginUser(NIK, this)
                     loginViewModel.token.observe(this) {
                         if (it != "") {
                             if (it != null) {
                                 loginViewModel.saveToken(it)
                             }
-                            startIntent()
                         }
                     }
                 }
@@ -72,13 +81,15 @@ class RegisNIK : AppCompatActivity() {
         loginViewModel.isLogin.observe(this){ login ->
             showLoading(true)
             if (login) {
-                startActivity(Intent(this@RegisNIK, MainActivity::class.java))
+                //startActivity(Intent(this@RegisNIK, MainActivity::class.java)) //tunggu face reco
+                startActivity(Intent(this@RegisNIK, RegisFoto::class.java)) //tunggu face reco
                 finish()
                 Toast.makeText(
                     this@RegisNIK,
                     R.string.login_success,
                     Toast.LENGTH_SHORT
                 ).show()
+                showLoading(false)
             }
             else if (!login) {
                 Toast.makeText(
@@ -86,6 +97,7 @@ class RegisNIK : AppCompatActivity() {
                     R.string.login_failed,
                     Toast.LENGTH_SHORT
                 ).show()
+                showLoading(false)
             }
             else {
                 Toast.makeText(
@@ -93,6 +105,7 @@ class RegisNIK : AppCompatActivity() {
                     R.string.server_caused,
                     Toast.LENGTH_SHORT
                 ).show()
+                showLoading(false)
             }
         }
 

@@ -9,9 +9,9 @@
 
     <androidx.camera.view.PreviewView
         android:id="@+id/viewFinder"
-        android:layout_width="283dp"
-        android:layout_height="283dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/tv_warning"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="@string/tv_wait_reco"
         android:textStyle="italic"
@@ -30,16 +30,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewFinder" />
 
+    <ImageView
+        android:id="@+id/btn_goVerif"
+        android:src="@drawable/ic_capture"
+        android:layout_marginTop="56dp"
+        android:text="Ambil Gambar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_warning"
+        android:layout_width="65dp"
+        android:layout_height="65dp"/>
+
+
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/iv_cp"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="221dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/logo_pantaubox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_warning"
+        app:layout_constraintTop_toBottomOf="@+id/btn_goVerif"
         tools:ignore="MissingConstraints" />
 
     <TextView

@@ -9,6 +9,12 @@ import androidx.datastore.preferences.core.Preferences
 
 class UserPreference private constructor(private val dataStore: DataStore<Preferences>){
 
+    fun getToken(): Flow<String> {
+        return dataStore.data.map { preferences ->
+            preferences[TOKEN] ?: ""
+        }
+    }
+
     suspend fun saveToken(token: String) {
         dataStore.edit { preferences ->
             preferences[TOKEN] = token

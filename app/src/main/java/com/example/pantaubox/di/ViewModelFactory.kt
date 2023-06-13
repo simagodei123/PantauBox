@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.pantaubox.login.LoginViewModel
+import com.example.pantaubox.login.reco.RegisFotoViewModel
 import com.example.pantaubox.main.MainViewModel
 
 @Suppress("UNCHECKED_CAST")
@@ -15,6 +16,9 @@ class ViewModelFactory(private val pref: Repository) : ViewModelProvider.NewInst
             }
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
                 MainViewModel(pref) as T
+            }
+            modelClass.isAssignableFrom(RegisFotoViewModel::class.java) -> {
+                RegisFotoViewModel(pref) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
