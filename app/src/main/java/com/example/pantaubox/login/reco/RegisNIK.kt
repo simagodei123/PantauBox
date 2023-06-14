@@ -10,8 +10,6 @@ import com.example.pantaubox.R
 import com.example.pantaubox.databinding.ActivityRegisNikBinding
 import com.example.pantaubox.di.ViewModelFactory
 import com.example.pantaubox.login.LoginViewModel
-import com.example.pantaubox.login.LoginWelcome
-import com.example.pantaubox.main.MainActivity
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 

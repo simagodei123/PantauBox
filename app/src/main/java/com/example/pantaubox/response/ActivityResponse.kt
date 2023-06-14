@@ -20,3 +20,8 @@ data class UploadResponse(
     @field:SerializedName("imageUrl")
     val imageUrl: String? = null,
 )
+
+data class VotingResponse(
+    @field:SerializedName("success")
+    val success: Boolean? = null,
+)

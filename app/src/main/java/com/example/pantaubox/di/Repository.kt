@@ -9,12 +9,17 @@ import androidx.lifecycle.asLiveData
 import com.example.pantaubox.api.ApiConfig
 import com.example.pantaubox.api.ApiService
 import com.example.pantaubox.response.LoginResponse
+import com.example.pantaubox.response.UploadResponse
+import com.example.pantaubox.response.VotingResponse
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class Repository(private val pref: UserPreference, private val apiService: ApiService) {
+
+    private val _isVoted = MutableLiveData<Boolean>()
+    val isVoted: LiveData<Boolean> = _isVoted
 
     private val _isLogin = MutableLiveData<Boolean>()
     val isLogin: LiveData<Boolean> = _isLogin
@@ -46,6 +51,34 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 _isLoading.value = false
                 Toast.makeText(context, t.message.toString(), Toast.LENGTH_SHORT).show()
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+    }
+
+    fun voteUser(nik: String) {
+        _isLoading.value = true
+        val client = ApiConfig.ApiService().voteuser(nik)
+        client.enqueue(object : Callback<VotingResponse> {
+            override fun onResponse(
+                call: Call<VotingResponse>,
+                response: Response<VotingResponse>
+            ) {
+                _isLoading.value = true
+                if (response.isSuccessful) {
+                    _isVoted.value = true
+                    val responseBody = response.body()
+                    if (responseBody != null) {
+                        Log.d(TAG, "onResponse: ${response.message()}")
+                    }
+                } else {
+                    _isVoted.value = false
+                    Log.d(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<VotingResponse>, t: Throwable) {
+                _isLoading.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
