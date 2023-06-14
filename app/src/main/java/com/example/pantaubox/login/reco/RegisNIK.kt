@@ -45,7 +45,7 @@ class RegisNIK : AppCompatActivity() {
 
     private fun setupAction() {
         binding.btnGoVerif.setOnClickListener {
-            startIntent()
+
             val nik = binding.edLoginNik.text.toString()
             val mediaType = "application/form-data".toMediaType()
             val NIK = nik.toRequestBody(mediaType)
@@ -63,6 +63,7 @@ class RegisNIK : AppCompatActivity() {
                             }
                         }
                     }
+                    startIntent()
                 }
             }
         }
