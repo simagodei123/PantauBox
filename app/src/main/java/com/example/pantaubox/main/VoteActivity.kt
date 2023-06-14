@@ -35,7 +35,6 @@ class VoteActivity : AppCompatActivity() {
             tvNorut.text = dataPaslon?.norut
             ivPaslon.setImageResource(dataPaslon?.photo!!)
             btnVote.setOnClickListener {
-                //votingPaslon()
                 uploadVoting()
             }
         }

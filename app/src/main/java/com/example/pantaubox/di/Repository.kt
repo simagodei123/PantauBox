@@ -58,7 +58,7 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
 
     fun voteUser(nik: String) {
         _isLoading.value = true
-        val client = ApiConfig.ApiService().voteuser(nik)
+        val client = ApiConfig.ApiService().voteUser(nik)
         client.enqueue(object : Callback<VotingResponse> {
             override fun onResponse(
                 call: Call<VotingResponse>,
