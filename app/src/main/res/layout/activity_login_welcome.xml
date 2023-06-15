@@ -17,7 +17,7 @@
         app:layout_constraintVertical_bias="0.129"
 
         android:src="@drawable/vector3"
-        android:contentDescription="@string/gambar_verif1"/>
+        android:contentDescription="@string/gambar_verif1" />
 
     <TextView
         android:id="@+id/tvAppName"

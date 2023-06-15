@@ -72,10 +72,6 @@ class RegisFoto : AppCompatActivity() {
 
     private fun setupViewModel() {
         viewModelFactory = ViewModelFactory.getInstance(this)
-
-        //regisFotoViewModel.isLoading.observe(this) {
-        //    showLoading(it)
-        //}
     }
 
     private fun startCamera() {

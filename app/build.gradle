@@ -19,7 +19,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField "String","BASE_URL","\"https://pantau-box.et.r.appspot.com/api/\""
+        buildConfigField "String", "BASE_URL", "\"https://pantau-box.et.r.appspot.com/api/\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -40,7 +40,7 @@ android {
     buildFeatures {
         viewBinding true
     }
-    packagingOptions{
+    packagingOptions {
         exclude("META-INF/LICENSE.md")
         exclude("META-INF/NOTICE.md")
     }
@@ -60,8 +60,6 @@ dependencies {
 
     //circle image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-    //glide
-    implementation 'com.github.bumptech.glide:glide:4.15.1'
     //logging interceptor
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3"
     //view model
@@ -80,9 +78,6 @@ dependencies {
 
     //datastore
     implementation "androidx.datastore:datastore-preferences:1.0.0"
-
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
 
     //viewModels
     implementation "androidx.activity:activity-ktx:1.7.2"

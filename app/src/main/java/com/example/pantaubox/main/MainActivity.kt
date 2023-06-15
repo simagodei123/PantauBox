@@ -1,5 +1,6 @@
 package com.example.pantaubox.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -36,9 +37,11 @@ class MainActivity : AppCompatActivity() {
         setupViewModel()
     }
 
+    @SuppressLint("Recycle")
     private fun getListPaslon(): ArrayList<Paslon> {
         val paslonName1 = resources.getStringArray(R.array.paslon_name1)
         val paslonName2 = resources.getStringArray(R.array.paslon_name2)
+        val paslonDesc = resources.getStringArray(R.array.paslon_desc)
         val paslonImg = resources.obtainTypedArray(R.array.paslon_img)
         val paslonNorut = resources.getStringArray(R.array.norut)
         val listPaslon = ArrayList<Paslon>()
@@ -47,7 +50,8 @@ class MainActivity : AppCompatActivity() {
                 paslonName1[i],
                 paslonName2[i],
                 paslonImg.getResourceId(i, -1),
-                paslonNorut[i]
+                paslonNorut[i],
+                paslonDesc[i]
             )
             listPaslon.add(paslon)
         }

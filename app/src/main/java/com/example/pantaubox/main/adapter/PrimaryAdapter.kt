@@ -22,7 +22,7 @@ class PrimaryAdapter(private val listPaslon: ArrayList<Paslon>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val (name1, name2, photo, norut) = listPaslon[position]
+        val (name1, name2, photo, norut, desc) = listPaslon[position]
         holder.binding.tvKandidatName1.text = name1
         holder.binding.tvKandidatName2.text = name2
         holder.binding.imgKandidat.setImageResource(photo)

@@ -28,6 +28,7 @@ class VoteActivity : AppCompatActivity() {
         binding.apply {
             tvNamaPaslon.text = dataPaslon?.name1
             tvNamaWapaslon.text = dataPaslon?.name2
+            tvDesc.text = dataPaslon?.deskripsi
             tvNorut.text = dataPaslon?.norut
             ivPaslon.setImageResource(dataPaslon?.photo!!)
             btnVote.setOnClickListener {

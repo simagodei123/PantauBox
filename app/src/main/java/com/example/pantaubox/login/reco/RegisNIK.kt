@@ -45,7 +45,6 @@ class RegisNIK : AppCompatActivity() {
 
     private fun setupAction() {
         binding.btnGoVerif.setOnClickListener {
-
             val nik = binding.edLoginNik.text.toString()
             val mediaType = "application/form-data".toMediaType()
             val NIK = nik.toRequestBody(mediaType)
@@ -81,7 +80,6 @@ class RegisNIK : AppCompatActivity() {
         loginViewModel.isLogin.observe(this) { login ->
             showLoading(true)
             if (login) {
-                //startActivity(Intent(this@RegisNIK, MainActivity::class.java)) //tunggu face reco
                 startActivity(Intent(this@RegisNIK, RegisFoto::class.java)) //tunggu face reco
                 finish()
                 Toast.makeText(

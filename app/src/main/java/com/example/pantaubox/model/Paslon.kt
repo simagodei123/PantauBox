@@ -9,4 +9,5 @@ data class Paslon(
     val name2: String,
     val photo: Int,
     val norut: String,
+    val deskripsi: String,
 ) : Parcelable

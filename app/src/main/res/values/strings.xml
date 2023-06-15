@@ -11,7 +11,7 @@
     <string name="gambar_paslon">gambar paslon</string>
     <string name="nama_paslon">Nama paslon</string>
     <string name="nama_wapaslon">Nama wapaslon</string>
-    <string name="desc_paslon">Deskripsi jika perlu / ada</string>
+    <string name="desc_paslon">Deskripsi</string>
     <string name="tv_wait_reco">Tetaplah berada di posisi ini,\ntekan tombol jika sudah siap.</string>
     <string name="button_vote">vote</string>
     <string name="norut_paslon">nomor urut</string>
@@ -37,6 +37,19 @@
     <string-array name="paslon_name2">
         <item>Maaruf Amin</item>
         <item>Sandiaga Uno</item>
+    </string-array>
+
+    <string-array name="paslon_desc">
+        <item>
+            Visi : \nMenjadi negara yang maju, adil, dan sejahtera dengan mengedepankan kepentingan rakyat.
+            \n\nMisi : \n1. Meningkatkan infrastruktur dan investasi untuk mendorong pertumbuhan ekonomi.
+            \n2. Meningkatkan kualitas pendidikan dan pelatihan vokasi guna menciptakan sumber daya manusia yang berkualitas.
+        </item>
+        <item>
+            Visi : \nMembangun Indonesia yang adil, makmur, dan berdaulat.
+            \n\nMisi : \n1. Menciptakan lebih banyak lapangan kerja dan penghasilan layak untuk kurangi pengangguran dan kemiskinan.
+            \n2. Meningkatkan kualitas pendidikan dan pembangunan manusia melalui akses dan investasi dalam pendidikan.
+        </item>
     </string-array>
 
     <integer-array name="paslon_img">
