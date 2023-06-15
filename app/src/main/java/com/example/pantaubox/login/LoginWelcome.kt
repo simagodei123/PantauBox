@@ -1,11 +1,10 @@
 package com.example.pantaubox.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pantaubox.databinding.ActivityLoginWelcomeBinding
 import com.example.pantaubox.login.reco.RegisNIK
-import com.example.pantaubox.main.MainActivity
 
 class LoginWelcome : AppCompatActivity() {
     private lateinit var binding: ActivityLoginWelcomeBinding

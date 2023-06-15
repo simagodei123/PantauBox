@@ -9,7 +9,6 @@ import androidx.lifecycle.asLiveData
 import com.example.pantaubox.api.ApiConfig
 import com.example.pantaubox.api.ApiService
 import com.example.pantaubox.response.LoginResponse
-import com.example.pantaubox.response.UploadResponse
 import com.example.pantaubox.response.VotingResponse
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -36,7 +35,7 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         client.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(
                 call: Call<LoginResponse>,
-                response: Response<LoginResponse>
+                response: Response<LoginResponse>,
             ) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
@@ -62,7 +61,7 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         client.enqueue(object : Callback<VotingResponse> {
             override fun onResponse(
                 call: Call<VotingResponse>,
-                response: Response<VotingResponse>
+                response: Response<VotingResponse>,
             ) {
                 _isLoading.value = true
                 if (response.isSuccessful) {
@@ -103,7 +102,7 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         private var instance: Repository? = null
         fun getInstance(
             preference: UserPreference,
-            apiService: ApiService
+            apiService: ApiService,
         ): Repository =
             instance ?: synchronized(this) {
                 instance ?: Repository(preference, apiService)

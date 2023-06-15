@@ -1,6 +1,5 @@
 package com.example.pantaubox.main
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pantaubox.di.Repository

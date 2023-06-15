@@ -5,12 +5,12 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.pantaubox.databinding.ActivityRegisFotoBinding
@@ -28,7 +28,7 @@ class RegisFoto : AppCompatActivity() {
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
-        grantResults: IntArray
+        grantResults: IntArray,
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
@@ -104,7 +104,7 @@ class RegisFoto : AppCompatActivity() {
         }
     }
 
-    private fun intentMain(){
+    private fun intentMain() {
         startActivity(Intent(this@RegisFoto, MainActivity::class.java))
         Toast.makeText(
             this@RegisFoto,

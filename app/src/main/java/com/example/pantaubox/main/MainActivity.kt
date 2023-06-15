@@ -1,26 +1,26 @@
 package com.example.pantaubox.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pantaubox.main.adapter.PrimaryAdapter
 import com.example.pantaubox.R
 import com.example.pantaubox.databinding.ActivityMainBinding
 import com.example.pantaubox.di.ViewModelFactory
 import com.example.pantaubox.login.LoginWelcome
+import com.example.pantaubox.main.adapter.PrimaryAdapter
 import com.example.pantaubox.model.Paslon
 
 class MainActivity : AppCompatActivity() {
     private val mainViewModel: MainViewModel by viewModels { viewModelFactory }
     private lateinit var viewModelFactory: ViewModelFactory
 
-    private lateinit var binding : ActivityMainBinding
-    private lateinit var rvPaslon : RecyclerView
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var rvPaslon: RecyclerView
     private val list = ArrayList<Paslon>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,14 +36,19 @@ class MainActivity : AppCompatActivity() {
         setupViewModel()
     }
 
-    private fun getListPaslon(): ArrayList<Paslon>{
+    private fun getListPaslon(): ArrayList<Paslon> {
         val paslonName1 = resources.getStringArray(R.array.paslon_name1)
         val paslonName2 = resources.getStringArray(R.array.paslon_name2)
         val paslonImg = resources.obtainTypedArray(R.array.paslon_img)
         val paslonNorut = resources.getStringArray(R.array.norut)
         val listPaslon = ArrayList<Paslon>()
         for (i in paslonName1.indices) {
-            val paslon = Paslon(paslonName1[i], paslonName2[i], paslonImg.getResourceId(i, -1), paslonNorut[i])
+            val paslon = Paslon(
+                paslonName1[i],
+                paslonName2[i],
+                paslonImg.getResourceId(i, -1),
+                paslonNorut[i]
+            )
             listPaslon.add(paslon)
         }
         return listPaslon
@@ -54,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = PrimaryAdapter(list)
         rvPaslon.adapter = adapter
 
-        adapter.setOnItemClickCallback(object : PrimaryAdapter.OnItemClickCallback{
+        adapter.setOnItemClickCallback(object : PrimaryAdapter.OnItemClickCallback {
             override fun onItemClicked(paslon: Paslon) {
                 detailVote(paslon)
             }

@@ -48,7 +48,7 @@ class NikEditText : AppCompatEditText {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                error = if (s.isNullOrEmpty()) context.getString(R.string.nik_kosong) 
+                error = if (s.isNullOrEmpty()) context.getString(R.string.nik_kosong)
                 else null
             }
         })

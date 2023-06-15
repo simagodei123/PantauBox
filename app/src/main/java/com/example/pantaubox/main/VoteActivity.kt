@@ -1,17 +1,13 @@
 package com.example.pantaubox.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.viewmodel.viewModelFactory
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pantaubox.databinding.ActivityVoteBinding
 import com.example.pantaubox.di.ViewModelFactory
 import com.example.pantaubox.model.Paslon
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.RequestBody.Companion.toRequestBody
-import java.io.File
 
 class VoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVoteBinding

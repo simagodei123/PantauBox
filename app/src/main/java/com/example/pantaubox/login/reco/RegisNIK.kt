@@ -1,11 +1,11 @@
 package com.example.pantaubox.login.reco
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pantaubox.R
 import com.example.pantaubox.databinding.ActivityRegisNikBinding
 import com.example.pantaubox.di.ViewModelFactory
@@ -34,7 +34,7 @@ class RegisNIK : AppCompatActivity() {
         loginViewModel.isLoading.observe(this) {
             showLoading(it)
         }
-        loginViewModel.tokenState().observe(this){
+        loginViewModel.tokenState().observe(this) {
             if (it != "") {
                 showLoading(false)
                 startActivity(Intent(this@RegisNIK, RegisFoto::class.java))
@@ -76,8 +76,9 @@ class RegisNIK : AppCompatActivity() {
             binding.pbLogin.visibility = View.GONE
         }
     }
+
     private fun startIntent() {
-        loginViewModel.isLogin.observe(this){ login ->
+        loginViewModel.isLogin.observe(this) { login ->
             showLoading(true)
             if (login) {
                 //startActivity(Intent(this@RegisNIK, MainActivity::class.java)) //tunggu face reco
@@ -89,16 +90,14 @@ class RegisNIK : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
                 showLoading(false)
-            }
-            else if (!login) {
+            } else if (!login) {
                 Toast.makeText(
                     this@RegisNIK,
                     R.string.login_failed,
                     Toast.LENGTH_SHORT
                 ).show()
                 showLoading(false)
-            }
-            else {
+            } else {
                 Toast.makeText(
                     this@RegisNIK,
                     R.string.server_caused,

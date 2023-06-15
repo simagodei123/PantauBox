@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pantaubox.di.Repository
 import kotlinx.coroutines.launch
-import okhttp3.RequestBody
 
 class VotingViewModel(private val pref: Repository) : ViewModel() {
 
