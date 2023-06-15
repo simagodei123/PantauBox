@@ -25,9 +25,9 @@ fun createFile(context: Context): File {
 fun rotateFile(file: File, isFrontCamera: Boolean = false) {
     val matrix = Matrix()
     val bitmap = BitmapFactory.decodeFile(file.path)
-    val rotation = if (isFrontCamera) 0f else 90f
+    val rotation = if (isFrontCamera) 0f else 270f
     matrix.postRotate(rotation)
-    //if (!isBackCamera) {
+    //if (!isFrontCamera) {
     //    matrix.postScale(-1f, 1f, bitmap.width / 2f, bitmap.height / 2f)
     //}
     val result = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
