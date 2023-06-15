@@ -42,14 +42,14 @@ class MainActivity : AppCompatActivity() {
         val paslonName1 = resources.getStringArray(R.array.paslon_name1)
         val paslonName2 = resources.getStringArray(R.array.paslon_name2)
         val paslonDesc = resources.getStringArray(R.array.paslon_desc)
-        val paslonImg = resources.obtainTypedArray(R.array.paslon_img)
+        val paslonImg = resources.getStringArray(R.array.paslon_img)
         val paslonNorut = resources.getStringArray(R.array.norut)
         val listPaslon = ArrayList<Paslon>()
         for (i in paslonName1.indices) {
             val paslon = Paslon(
                 paslonName1[i],
                 paslonName2[i],
-                paslonImg.getResourceId(i, -1),
+                paslonImg[i],
                 paslonNorut[i],
                 paslonDesc[i]
             )

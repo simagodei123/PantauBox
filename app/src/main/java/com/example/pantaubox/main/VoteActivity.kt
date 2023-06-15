@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.pantaubox.databinding.ActivityVoteBinding
 import com.example.pantaubox.di.ViewModelFactory
 import com.example.pantaubox.model.Paslon
@@ -25,12 +26,14 @@ class VoteActivity : AppCompatActivity() {
         @Suppress("DEPRECATION")
         val dataPaslon = intent.getParcelableExtra<Paslon>("data")
 
+        Glide.with(this)
+            .load(dataPaslon?.photo)
+            .into(binding.ivPaslon)
         binding.apply {
             tvNamaPaslon.text = dataPaslon?.name1
             tvNamaWapaslon.text = dataPaslon?.name2
             tvDesc.text = dataPaslon?.deskripsi
             tvNorut.text = dataPaslon?.norut
-            ivPaslon.setImageResource(dataPaslon?.photo!!)
             btnVote.setOnClickListener {
                 uploadVoting()
             }
@@ -48,6 +51,7 @@ class VoteActivity : AppCompatActivity() {
             Toast.LENGTH_SHORT
         ).show()
         startActivity(Intent(this@VoteActivity, MainActivity::class.java))
+        finish()
     }
 
     private fun uploadVoting() {

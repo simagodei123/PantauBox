@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class Paslon(
     val name1: String,
     val name2: String,
-    val photo: Int,
+    val photo: String,
     val norut: String,
     val deskripsi: String,
 ) : Parcelable

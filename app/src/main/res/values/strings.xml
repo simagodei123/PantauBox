@@ -52,10 +52,10 @@
         </item>
     </string-array>
 
-    <integer-array name="paslon_img">
-        <item>@drawable/jokowimaruf</item>
-        <item>@drawable/prabowosandi</item>
-    </integer-array>
+    <string-array name="paslon_img">
+        <item>https://i.postimg.cc/R0sqZdgm/jokowimaruf.jpg</item>
+        <item>https://i.postimg.cc/gkFypcwD/prabowosandi.jpg</item>
+    </string-array>
 
     <string-array name="norut">
         <item>1</item>
